@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Request } from 'selenium-webdriver/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,4 +15,8 @@ export class ImgyApiService {
     return this.http.get(this.url + 'posts');
   }
 
+  geToken(email: string, password: string) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(this.url + 'auth/login', {email, password}, {headers});
+  }
 }
