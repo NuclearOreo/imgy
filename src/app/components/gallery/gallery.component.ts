@@ -8,12 +8,14 @@ import { ImgyApiService } from 'src/app/imgy-api.service';
 })
 export class GalleryComponent implements OnInit {
 
+  list: any;
+
   constructor(private service: ImgyApiService) { }
 
   ngOnInit() {
     this.service.getPost().subscribe(
       (res) => {
-        console.log(res);
+        this.list = res;
       }
     );
   }

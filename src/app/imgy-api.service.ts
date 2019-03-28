@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ImgyApiService {
 
-  private url = 'https://thawing-beach-86699.herokuapp.com/api/';
+  private url = 'https://obscure-ridge-18497.herokuapp.com/api/';
 
   constructor(private http: HttpClient) { }
 
