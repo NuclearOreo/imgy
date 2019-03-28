@@ -8,6 +8,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { ImgyApiService } from './imgy-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,12 @@ import { SignupComponent } from './components/signup/signup.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ImgyApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
