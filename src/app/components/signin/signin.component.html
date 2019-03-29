@@ -5,9 +5,9 @@
     <img class="mb-4" src="assets/img/picture.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" [(ngModel)]="email"  class="form-control" placeholder="Email address" required autofocus>
+    <input type="email" id="inputEmail" (keyup.enter)="signIn()" [(ngModel)]="email"  class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" [(ngModel)]="password" class="form-control" placeholder="Password" required>
+    <input type="password" id="inputPassword"(keyup.enter)="signIn()" [(ngModel)]="password" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
     </div>
     <button class="btn btn-lg btn-primary btn-block" (click)="signIn()" type="submit">Sign in</button>
