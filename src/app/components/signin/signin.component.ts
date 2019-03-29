@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
   email: string;
   password: string;
+  error = false;
 
   constructor(private service: ImgyApiService, private router: Router) { }
 
@@ -19,9 +20,12 @@ export class SigninComponent implements OnInit {
 
   signIn() {
     this.service.geToken(this.email, this.password).subscribe(
-      (res: {token: string}) => {
+      (res: {token: string} ) => {
         localStorage.setItem('x-auth-token', res.token);
         this.router.navigateByUrl('/');
+      },
+      (err) => {
+        if (err) { this.error = true; }
       }
     );
   }
