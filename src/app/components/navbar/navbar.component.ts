@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  login = false;
+
+  constructor(private router: Router) {
+    const token = localStorage.getItem('x-auth-token');
+    if (token) { this.login = true; }
+   }
 
   ngOnInit() {
+  }
+
+  logOut() {
+    localStorage.removeItem('x-auth-token');
+    location.reload();
   }
 
 }
