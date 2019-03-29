@@ -18,4 +18,10 @@ export class ImgyApiService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url + 'auth/login', {email, password}, {headers});
   }
+
+  signUp(username: string, email: string, password: string) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(this.url + 'users', {username, email, password}, {headers});
+  }
+
 }

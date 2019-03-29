@@ -1,0 +1,30 @@
+<br>
+<br>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <img src="assets/img/picture.png" alt="" height="72">
+            <p class="lead">Sign Up</p>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" [(ngModel)]="username"  id="username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" [(ngModel)]="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="InputPassword1">Password</label>
+                <input type="password" class="form-control" [(ngModel)]="password1"  id="InputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="InputPassword2">Password again</label>
+                <input type="password" class="form-control" [(ngModel)]="password2" id="InputPassword2" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="signUp()" >Submit</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>
