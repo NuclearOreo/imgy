@@ -22,7 +22,7 @@ export class SigninComponent implements OnInit {
     this.service.geToken(this.email, this.password).subscribe(
       (res: {token: string} ) => {
         localStorage.setItem('x-auth-token', res.token);
-        this.router.navigateByUrl('/');
+        location.reload();
       },
       (err) => {
         if (err) { this.error = true; }
