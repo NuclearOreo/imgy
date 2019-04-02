@@ -5,10 +5,11 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HidepagesService } from './service/hidepages.service';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: GalleryComponent },
-  { path: 'Profile', component: ProfileComponent },
+  { path: 'Profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'SignIn', component: SigninComponent, canActivate: [HidepagesService] },
   { path: 'SignUp', component: SignupComponent, canActivate: [HidepagesService] },
   { path: '**', component: GalleryComponent },

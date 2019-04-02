@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class ImgyApiService {
 
   private url = 'https://tranquil-hollows-33027.herokuapp.com/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getPost(username?:string) {
     if (username) {  return this.http.get(this.url + 'posts/' + username); }
@@ -41,6 +42,12 @@ export class ImgyApiService {
 
   logOut() {
     localStorage.removeItem('x-auth-token');
+    this.router.navigateByUrl('/');
+  }
+
+  verify(token: string) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(this.url + 'auth/verify', {token}, {headers});
   }
   
 }
