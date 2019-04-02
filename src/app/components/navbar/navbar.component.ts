@@ -9,7 +9,7 @@ import { ImgyApiService } from 'src/app/imgy-api.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router, private service: ImgyApiService) { }
+  constructor(private router: Router, public service: ImgyApiService) { }
 
   ngOnInit() {
   }
