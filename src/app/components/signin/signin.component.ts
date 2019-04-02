@@ -22,11 +22,9 @@ export class SigninComponent implements OnInit {
     this.service.geToken(this.email, this.password).subscribe(
       (res: {token: string} ) => {
         localStorage.setItem('x-auth-token', res.token);
-        location.reload();
+        this.router.navigateByUrl('/');
       },
-      (err) => {
-        if (err) { this.error = true; }
-      }
+      (err) => { if (err) { this.error = true; } }
     );
   }
 }

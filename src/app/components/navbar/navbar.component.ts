@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ImgyApiService } from 'src/app/imgy-api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  login = false;
-
-  constructor(private router: Router) {
-    const token = localStorage.getItem('x-auth-token');
-    if (token) { this.login = true; }
-   }
+  constructor(private router: Router, private service: ImgyApiService) { }
 
   ngOnInit() {
   }

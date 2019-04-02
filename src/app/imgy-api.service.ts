@@ -24,4 +24,10 @@ export class ImgyApiService {
     return this.http.post(this.url + 'users', {username, email, password}, {headers});
   }
 
+  isLogin() {
+    const token =  localStorage.getItem('x-auth-token');
+    if (!token) { return false };
+    return true;
+  }
+
 }

@@ -4,15 +4,15 @@
       <img src="assets/img/picture.png" alt="" height="50">
     </a>
   </h5>
-    <div *ngIf="!login">
+    <div *ngIf="!service.isLogin()">
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" routerLink="/SignIn">Sign In</a>
         </nav> 
     </div>
-    <div *ngIf="!login">
+    <div *ngIf="!service.isLogin()">
       <a class="btn btn-outline-primary" routerLink="/SignUp">Sign up</a>
     </div>
-    <div *ngIf="login">
+    <div *ngIf="service.isLogin()">
         <a class="btn btn-outline-primary" (click)="logOut()" >Logout</a>
     </div>
   </div>
