@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { HidepagesService } from './service/hidepages.service';
 
 const routes: Routes = [
   { path: '', component: GalleryComponent },
-  { path: 'SignIn', component: SigninComponent },
-  { path: 'SignUp', component: SignupComponent },
+  { path: 'SignIn', component: SigninComponent, canActivate: [HidepagesService] },
+  { path: 'SignUp', component: SignupComponent, canActivate: [HidepagesService] },
   { path: '**', component: GalleryComponent },
 ];
 

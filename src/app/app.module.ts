@@ -11,6 +11,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ImgyApiService } from './imgy-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HidepagesService } from './service/hidepages.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule
   ],
   providers: [
-    ImgyApiService
+    ImgyApiService,
+    HidepagesService
   ],
   bootstrap: [AppComponent]
 })
