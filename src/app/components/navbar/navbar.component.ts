@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     localStorage.removeItem('x-auth-token');
-    location.reload();
   }
 
 }
