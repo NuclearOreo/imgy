@@ -11,7 +11,8 @@ export class ImgyApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPost() {
+  getPost(username?:string) {
+    if (username) {  return this.http.get(this.url + 'posts/' + username); }
     return this.http.get(this.url + 'posts');
   }
 

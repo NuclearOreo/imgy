@@ -1,0 +1,8 @@
+<div class="container">
+    <h2 class="text-center">My Photos</h2>
+    <div class="card-columns">
+        <div *ngFor="let item of list" class="card">
+            <img class="card-img" src="{{ item.imageUrl }}" alt="Card image">
+        </div>
+    </div>
+</div>

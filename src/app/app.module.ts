@@ -12,6 +12,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ImgyApiService } from './imgy-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HidepagesService } from './service/hidepages.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HidepagesService } from './service/hidepages.service';
     FooterComponent,
     GalleryComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { HidepagesService } from './service/hidepages.service';
   ],
   providers: [
     ImgyApiService,
-    HidepagesService
+    HidepagesService,
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })
