@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +26,20 @@ export class ImgyApiService {
   }
 
   isLogin() {
-    const token =  localStorage.getItem('x-auth-token');
+    const token = localStorage.getItem('x-auth-token');
     if (!token) { return false; }
     return true;
   }
 
+  getUser() {
+    const token = localStorage.getItem('x-auth-token');
+    const helper = new JwtHelperService();
+    const decode = helper.decodeToken(token);
+    return decode
+  }
+
+  logOut() {
+    localStorage.removeItem('x-auth-token');
+  }
+  
 }

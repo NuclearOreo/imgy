@@ -12,7 +12,13 @@
     <div *ngIf="!service.isLogin()">
       <a class="btn btn-outline-primary" routerLink="/SignUp">Sign up</a>
     </div>
-    <div *ngIf="service.isLogin()">
-        <a class="btn btn-outline-primary" (click)="logOut()" >Logout</a>
+    <div *ngIf="service.isLogin()" class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ service.getUser().username }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Profile</a>
+        <a class="dropdown-item" (click)="service.logOut()">Logout</a>
+      </div>
     </div>
   </div>
