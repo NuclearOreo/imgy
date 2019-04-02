@@ -26,7 +26,7 @@ export class ImgyApiService {
 
   isLogin() {
     const token =  localStorage.getItem('x-auth-token');
-    if (!token) { return false };
+    if (!token) { return false; }
     return true;
   }
 
