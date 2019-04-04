@@ -81,7 +81,16 @@
         </button>
       </div>
       <div class="modal-body">
-        Comments
+        <div *ngFor="let comment of comments">
+          <div class="card">
+              <h5 class="card-header">Post ID: {{ comment.postId }} </h5>
+              <div class="card-body">
+                <h5 class="card-title">Comment</h5>
+                <p class="card-text"> {{ comment.comment }} </p>
+              </div>
+          </div>
+          <br>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

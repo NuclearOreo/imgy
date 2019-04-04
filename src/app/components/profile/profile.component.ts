@@ -10,11 +10,13 @@ export class ProfileComponent implements OnInit {
 
   list: object;
   info: object;
+  comments: object;
 
   constructor(private service: ImgyApiService) {
     const username = service.getUser().username;
-    this.service.getPost(username).subscribe( (res) => { this.list = res; });
-    this.service.getProfile(username).subscribe((res) => { this.info = res; } );
+    this.service.getPost(username).subscribe( (posts) => { this.list = posts; });
+    this.service.getProfile(username).subscribe((profile) => { this.info = profile; } );
+    this.service.getCommentsbyUsername(username).subscribe((comments) => { this.comments = comments; } );
    }
 
   ngOnInit() {

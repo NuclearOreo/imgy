@@ -45,6 +45,10 @@ export class ImgyApiService {
     return this.http.get(this.url + 'profiles/');
   }
 
+  getCommentsbyUsername(username: string) {
+    return this.http.get(this.url + 'comments/username/' +  username);
+  }
+
   logOut() {
     localStorage.removeItem('x-auth-token');
     this.router.navigateByUrl('/');
