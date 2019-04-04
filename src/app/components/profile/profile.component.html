@@ -40,31 +40,31 @@
                   </div>
                 <div class="col-md-4 mb-3">
                   <label for="validationDefault01">First name</label>
-                  <input type="text" class="form-control" placeholder="{{ info.firstname }}">
+                  <input type="text" class="form-control" placeholder="{{ info.firstname }}" [(ngModel)]="firstname">
                 </div>
                 <div class="col-md-4 mb-3">
                   <label for="validationDefault02">Last name</label>
-                  <input type="text" class="form-control" placeholder="{{ info.lastname }}">
+                  <input type="text" class="form-control" placeholder="{{ info.lastname }}" [(ngModel)]="lastname">
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="validationDefault03">City</label>
-                  <input type="text" class="form-control" placeholder="{{ info.city }}">
+                  <input type="text" class="form-control" placeholder="{{ info.city }}" [(ngModel)]="city">
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="validationDefault04">State</label>
-                  <input type="text" class="form-control" placeholder="{{ info.state }}">
+                  <input type="text" class="form-control" placeholder="{{ info.state }}" [(ngModel)]="state">
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="validationDefault05">Zip</label>
-                  <input type="text" class="form-control" placeholder="{{ info.zip }}">
+                  <input type="text" class="form-control" placeholder="{{ info.zip }}" [(ngModel)]="zip">
                 </div>
               </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" (click)="updateProfile()" class="btn btn-primary">Update</button>
       </div>
     </div>
   </div>

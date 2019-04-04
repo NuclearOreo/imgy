@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImgyApiService } from 'src/app/imgy-api.service';
+import { Profile } from './profile';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,11 @@ export class ProfileComponent implements OnInit {
   list: object;
   info: object;
   comments: object;
+  firstname = '';
+  lastname = '';
+  city = '';
+  state = '';
+  zip = '';
 
   constructor(private service: ImgyApiService) {
     const username = service.getUser().username;
@@ -20,6 +26,9 @@ export class ProfileComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  updateProfile() {
   }
 
 }

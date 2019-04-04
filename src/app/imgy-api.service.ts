@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { log } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,12 @@ export class ImgyApiService {
 
   getCommentsbyUsername(username: string) {
     return this.http.get(this.url + 'comments/username/' +  username);
+  }
+
+  updateProfile(profile: object) {
+    const token = localStorage.getItem('x-auth-token');
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').append('x-auth-token', token);
+    return this.http.put(this.url + 'profiles', profile, { headers });
   }
 
   logOut() {
