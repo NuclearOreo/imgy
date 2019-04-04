@@ -31,6 +31,9 @@
         </button>
       </div>
       <div *ngIf="info" class="modal-body">
+              <div *ngIf="error" class="alert alert-danger" role="alert">
+                  Error occured
+              </div>
               <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationDefaultUsername">Username</label>
@@ -48,6 +51,10 @@
                 </div>
               </div>
               <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault03">Street</label>
+                  <input type="text" class="form-control" placeholder="{{ info.street }}" [(ngModel)]="street">
+                </div>
                 <div class="col-md-6 mb-3">
                   <label for="validationDefault03">City</label>
                   <input type="text" class="form-control" placeholder="{{ info.city }}" [(ngModel)]="city">
