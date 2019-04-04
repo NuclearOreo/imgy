@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HidepagesService } from './service/hidepages.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuardService } from './service/auth-guard.service';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AuthGuardService } from './service/auth-guard.service';
     GalleryComponent,
     SigninComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
