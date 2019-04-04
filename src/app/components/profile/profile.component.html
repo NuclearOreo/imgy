@@ -5,7 +5,7 @@
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" data-toggle="modal" data-target="#Info">Info</a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#Info">Information</a>
                 <a class="dropdown-item" data-toggle="modal" data-target="#Comments">Comments</a>
             </div>
         </div>
@@ -25,17 +25,46 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Information</h5>
         <button type="button" class="close" data-dismiss="modal">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Info
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefaultUsername">Username</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="{{ info.username }}" readonly>
+                    </div>
+                  </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault01">First name</label>
+                  <input type="text" class="form-control" placeholder="{{ info.firstname }}">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault02">Last name</label>
+                  <input type="text" class="form-control" placeholder="{{ info.lastname }}">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault03">City</label>
+                  <input type="text" class="form-control" placeholder="{{ info.city }}">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="validationDefault04">State</label>
+                  <input type="text" class="form-control" placeholder="{{ info.state }}">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="validationDefault05">Zip</label>
+                  <input type="text" class="form-control" placeholder="{{ info.zip }}">
+                </div>
+              </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Update</button>
       </div>
     </div>
   </div>
@@ -46,7 +75,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Comments</h5>
         <button type="button" class="close" data-dismiss="modal">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -56,7 +85,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

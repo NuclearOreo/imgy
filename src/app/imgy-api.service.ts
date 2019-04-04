@@ -12,7 +12,7 @@ export class ImgyApiService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getPost(username?:string) {
+  getPost(username?: string) {
     if (username) {  return this.http.get(this.url + 'posts/' + username); }
     return this.http.get(this.url + 'posts');
   }
@@ -37,7 +37,12 @@ export class ImgyApiService {
     const token = localStorage.getItem('x-auth-token');
     const helper = new JwtHelperService();
     const decode = helper.decodeToken(token);
-    return decode
+    return decode;
+  }
+
+  getProfile(username?: string)  {
+    if (username) { return this.http.get(this.url + 'profiles/' + username); }
+    return this.http.get(this.url + 'profiles/');
   }
 
   logOut() {
@@ -49,5 +54,4 @@ export class ImgyApiService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url + 'auth/verify', {token}, {headers});
   }
-  
 }
