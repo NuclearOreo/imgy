@@ -16,6 +16,7 @@ import { HidepagesService } from './service/hidepages.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { PostComponent } from './components/post/post.component';
+import { HoverComponent } from './components/hover/hover.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PostComponent } from './components/post/post.component';
     SigninComponent,
     SignupComponent,
     ProfileComponent,
-    PostComponent
+    PostComponent,
+    HoverComponent
   ],
   imports: [
     BrowserModule,
