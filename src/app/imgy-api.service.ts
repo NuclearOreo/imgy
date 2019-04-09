@@ -18,6 +18,10 @@ export class ImgyApiService {
     return this.http.get(this.url + 'posts');
   }
 
+  getPostById(id: string) {
+    return this.http.get(this.url + 'posts/id/' + id);
+  }
+
   geToken(email: string, password: string) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url + 'auth/login', {email, password}, {headers});
