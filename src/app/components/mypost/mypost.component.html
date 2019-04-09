@@ -1,3 +1,22 @@
-<p>
-  mypost works!
-</p>
+<div class="container">
+  <img *ngIf="post" src="{{ post.imageUrl }}" alt="">
+  <br>
+  <br>
+
+  <div class="list-group">
+     <a *ngFor="let comment of comments" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+           <h5 class="mb-1">{{ comment.username }}</h5>
+           <small>3 days ago</small>
+        </div>
+        <p class="mb-1">{{ comment.comment }}</p>
+        <small>{{ comment._id }}</small>
+     </a>
+  </div>
+  <br>
+
+  <div class="text-center">
+      <button type="button" class="btn btn-danger">Delete</button>
+  </div>
+  <br>
+</div>
