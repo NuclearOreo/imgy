@@ -1,3 +1,12 @@
+:host {
+  position: relative;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: inline-block;
+  overflow: hidden;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -5,9 +14,14 @@
     bottom: 0;
     left: 0;
 
-    background: rgba(255, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
 
+    background-image: url('../../../assets/img/picture.png');
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position-x: 50%;
+    background-position-y: 50%;
   }
