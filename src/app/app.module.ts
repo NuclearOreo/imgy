@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { PostComponent } from './components/post/post.component';
 import { HoverComponent } from './components/hover/hover.component';
+import { MypostComponent } from './components/mypost/mypost.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HoverComponent } from './components/hover/hover.component';
     SignupComponent,
     ProfileComponent,
     PostComponent,
-    HoverComponent
+    HoverComponent,
+    MypostComponent
   ],
   imports: [
     BrowserModule,

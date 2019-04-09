@@ -15,7 +15,7 @@
     <h2 class="text-center">My Photos</h2>
     <div class="card-columns">
         <div *ngFor="let item of list" class="card">
-          <hover>
+          <hover routerLink="/MyPost/{{ item._id }}">
             <img class="card-img" src="{{ item.imageUrl }}" alt="Card image">
           </hover>
         </div>
