@@ -54,6 +54,10 @@ export class ImgyApiService {
     return this.http.get(this.url + 'comments/username/' +  username);
   }
 
+  getCommentsbyId(id: string) {
+    return this.http.get(this.url + 'comments/' +  id);
+  }
+
   updateProfile(profile: object) {
     const token = localStorage.getItem('x-auth-token');
     const headers = new HttpHeaders().set('Content-Type', 'application/json').append('x-auth-token', token);
