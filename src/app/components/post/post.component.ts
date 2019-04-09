@@ -14,10 +14,7 @@ export class PostComponent implements OnInit {
 
   constructor(private service: ImgyApiService, private route: ActivatedRoute) {
     const id = this.route.snapshot.paramMap.get('id');
-    service.getPostById(id).subscribe((res: Post) => {
-      console.log(res);
-      this.post = res;
-     });
+    service.getPostById(id).subscribe((res: Post) => { this.post = res; });
   }
 
   ngOnInit() {
