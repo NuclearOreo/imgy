@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { log } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +19,12 @@ export class ImgyApiService {
 
   getPostById(id: string) {
     return this.http.get(this.url + 'posts/id/' + id);
+  }
+
+  deletePost(id: string) {
+    const token = localStorage.getItem('x-auth-token');
+    const headers = new HttpHeaders().set('x-auth-token', token);
+    return this.http.delete(this.url + 'post/' + id, { headers });
   }
 
   geToken(email: string, password: string) {

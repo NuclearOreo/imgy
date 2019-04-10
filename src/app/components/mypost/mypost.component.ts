@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ImgyApiService } from 'src/app/imgy-api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from './post';
+import { log } from 'util';
 
 @Component({
   selector: 'app-mypost',
@@ -9,12 +10,14 @@ import { Post } from './post';
   styleUrls: ['./mypost.component.css']
 })
 export class MypostComponent implements OnInit {
+  id: string;
   post: Post;
   comments = [];
+  error = false;
 
-  constructor(private service: ImgyApiService, private route: ActivatedRoute) {
-    const id = this.route.snapshot.paramMap.get('id');
-    service.getPostById(id).subscribe((post: Post) => {
+  constructor(private service: ImgyApiService, private route: ActivatedRoute, private router: Router) {
+    this.id = this.route.snapshot.paramMap.get('id');
+    service.getPostById(this.id).subscribe((post: Post) => {
       this.post = post; this.getComments();
     });
   }
@@ -28,6 +31,12 @@ export class MypostComponent implements OnInit {
       const comment = await this.service.getCommentsbyId(commentsId).toPromise();
       this.comments.push(comment);
     }
- }
+  }
+
+  deletePost() {
+    this.service.deletePost(this.id).subscribe(
+    (res) => { this.router.navigateByUrl('/Profile'); console.log(res); },
+    (err) => { this.error = true; console.log(err); });
+  }
 
 }
