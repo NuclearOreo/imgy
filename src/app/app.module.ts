@@ -18,6 +18,7 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { PostComponent } from './components/post/post.component';
 import { HoverComponent } from './components/hover/hover.component';
 import { MypostComponent } from './components/mypost/mypost.component';
+import { NewPostComponent } from './components/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MypostComponent } from './components/mypost/mypost.component';
     ProfileComponent,
     PostComponent,
     HoverComponent,
-    MypostComponent
+    MypostComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
