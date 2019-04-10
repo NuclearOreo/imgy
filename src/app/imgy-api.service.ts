@@ -21,6 +21,12 @@ export class ImgyApiService {
     return this.http.get(this.url + 'posts/id/' + id);
   }
 
+  createPost(imageUrl: string, username: string) {
+    const token = localStorage.getItem('x-auth-token');
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').append('x-auth-token', token);
+    return this.http.post(this.url + 'posts/' + username, { imageUrl }, { headers });
+  }
+
   deletePost(id: string) {
     const token = localStorage.getItem('x-auth-token');
     const headers = new HttpHeaders().set('x-auth-token', token);

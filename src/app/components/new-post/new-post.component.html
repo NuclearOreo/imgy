@@ -1,3 +1,24 @@
-<p>
-  new-post works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        Something went terribly wrong :(
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" class="form-control" [(ngModel)]="imageUrl" id="imageUrl" placeholder="">
+      </div>
+      <div class="form-group">
+        <div class="text-center">
+          <button (click)="submitPost()" type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card bg-dark text-white">
+        <img src="{{ imageUrl }}" class="card-img" alt="No image">
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
