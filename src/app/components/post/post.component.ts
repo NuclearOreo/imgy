@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImgyApiService } from 'src/app/imgy-api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from './post';
 
 
@@ -10,12 +10,15 @@ import { Post } from './post';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
+  postId: string;
   post: Post;
   comments = [];
+  newComment: string;
+  error = false;
 
-  constructor(private service: ImgyApiService, private route: ActivatedRoute) {
-    const id = this.route.snapshot.paramMap.get('id');
-    service.getPostById(id).subscribe((post: Post) => {
+  constructor(public service: ImgyApiService, private route: ActivatedRoute, private router: Router) {
+    this.postId = this.route.snapshot.paramMap.get('id');
+    service.getPostById(this.postId).subscribe((post: Post) => {
       this.post = post; this.getComments();
     });
   }
@@ -29,6 +32,13 @@ export class PostComponent implements OnInit {
        const comment = await this.service.getCommentsbyId(commentsId).toPromise();
        this.comments.push(comment);
      }
+  }
+
+  submitComment() {
+    this.service.createComment(this.postId, this.newComment).subscribe(
+      (res) => { this.router.navigateByUrl('/Post' + this.postId); },
+      (err) => { this.error = true; }
+    );
   }
 
 }

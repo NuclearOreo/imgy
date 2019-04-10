@@ -13,5 +13,25 @@
          <small>{{ comment._id }}</small>
       </a>
    </div>
+
+   <br>
+
+   <div *ngIf="service.isLogin()" class="card">
+      <div class="card-header">
+        Add Comment
+      </div>
+      <div *ngIf="error"  class="alert alert-danger" role="alert">
+            Something went terribly wrong : (
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+         <div class="form-group">
+            <input ([ngModel])="newComment" type="email" class="form-control" placeholder="Amazing">
+         </div>
+         <button (click)="submitComment()" type="submit" class="btn btn-primary">Submit</button>
+        </blockquote>
+      </div>
+    </div>
+
    <br>
 </div>
