@@ -24,7 +24,7 @@ export class ImgyApiService {
   deletePost(id: string) {
     const token = localStorage.getItem('x-auth-token');
     const headers = new HttpHeaders().set('x-auth-token', token);
-    return this.http.delete(this.url + 'post/' + id, { headers });
+    return this.http.delete(this.url + 'posts/' + id, { headers });
   }
 
   geToken(email: string, password: string) {
