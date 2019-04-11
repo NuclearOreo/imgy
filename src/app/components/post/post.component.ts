@@ -36,7 +36,7 @@ export class PostComponent implements OnInit {
 
   submitComment() {
     this.service.createComment(this.postId, this.newComment).subscribe(
-      (res) => { this.router.navigateByUrl('/Post' + this.postId); },
+      (res) => { this.comments.push(res); },
       (err) => { this.error = true; }
     );
   }
