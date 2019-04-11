@@ -33,9 +33,6 @@
       </button>
     </div>
     <div *ngIf="info" class="modal-body">
-            <div *ngIf="error" class="alert alert-danger" role="alert">
-                Error occured
-            </div>
             <div class="form-row">
               <div class="col-md-4 mb-3">
                   <label for="validationDefaultUsername">Username</label>
@@ -89,9 +86,6 @@
       </button>
     </div>
     <div class="modal-body">
-      <div *ngIf="errorComment" class="alert alert-danger" role="alert">
-          Something went terribly wrong :(
-      </div>
       <div *ngFor="let comment of comments; let i = index">
         <div class="card">
             <h5 class="card-header">Post ID: {{ comment.postId }} </h5>
