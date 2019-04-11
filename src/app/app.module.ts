@@ -19,6 +19,7 @@ import { PostComponent } from './components/post/post.component';
 import { HoverComponent } from './components/hover/hover.component';
 import { MypostComponent } from './components/mypost/mypost.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NewPostComponent } from './components/new-post/new-post.component';
     PostComponent,
     HoverComponent,
     MypostComponent,
-    NewPostComponent
+    NewPostComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
