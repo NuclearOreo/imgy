@@ -1,3 +1,111 @@
-<p>
-  user works!
-</p>
+<div class="container">
+  <div class="text-center">
+      <img src="assets/img/mistery.png" alt="" height="80">
+      <div class="btn-group" role="group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+          </button>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" data-toggle="modal" data-target="#Info">Information</a>
+              <a class="dropdown-item" data-toggle="modal" data-target="#Comments">Comments</a>
+          </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <h2 class="text-center">Photos</h2>
+  <div class="card-columns">
+      <div *ngFor="let item of list" class="card">
+        <hover routerLink="/MyPost/{{ item._id }}">
+          <img class="card-img" src="{{ item.imageUrl }}" alt="Card image">
+        </hover>
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Info" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Information</h5>
+      <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div *ngIf="info" class="modal-body">
+            <div *ngIf="error" class="alert alert-danger" role="alert">
+                Error occured
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                  <label for="validationDefaultUsername">Username</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="{{ info.username }}" readonly>
+                  </div>
+                </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationDefault01">First name</label>
+                <input type="text" class="form-control" placeholder="{{ info.firstname }}" [(ngModel)]="firstname" readonly>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Last name</label>
+                <input type="text" class="form-control" placeholder="{{ info.lastname }}" [(ngModel)]="lastname" readonly>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="validationDefault03">Street</label>
+                <input type="text" class="form-control" placeholder="{{ info.street }}" [(ngModel)]="street" readonly>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationDefault03">City</label>
+                <input type="text" class="form-control" placeholder="{{ info.city }}" [(ngModel)]="city" readonly>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationDefault04">State</label>
+                <input type="text" class="form-control" placeholder="{{ info.state }}" [(ngModel)]="state" readonly>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationDefault05">Zip</label>
+                <input type="text" class="form-control" placeholder="{{ info.zip }}" [(ngModel)]="zip" readonly>
+              </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Comments" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Comments</h5>
+      <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="errorComment" class="alert alert-danger" role="alert">
+          Something went terribly wrong :(
+      </div>
+      <div *ngFor="let comment of comments; let i = index">
+        <div class="card">
+            <h5 class="card-header">Post ID: {{ comment.postId }} </h5>
+            <div class="card-body">
+              <h5 class="card-title">Comment</h5>
+              <p class="card-text"> {{ comment.comment }} </p>
+            </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
