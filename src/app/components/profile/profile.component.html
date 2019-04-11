@@ -90,12 +90,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <div *ngFor="let comment of comments">
+        <div *ngIf="errorComment" class="alert alert-danger" role="alert">
+            Something went terribly wrong :(
+        </div>
+        <div *ngFor="let comment of comments; let i = index">
           <div class="card">
               <h5 class="card-header">Post ID: {{ comment.postId }} </h5>
               <div class="card-body">
                 <h5 class="card-title">Comment</h5>
                 <p class="card-text"> {{ comment.comment }} </p>
+                <div class="text-center">
+                  <button (click)="deleteComment(comment._id, i)" type="button" class="btn btn-danger">Delete</button>
+                </div>
               </div>
           </div>
           <br>
