@@ -14,8 +14,10 @@ export class MypostComponent implements OnInit {
   post: Post;
   comments = [];
   error = false;
+  errorComment = false;
+  newComment: string;
 
-  constructor(private service: ImgyApiService, private route: ActivatedRoute, private router: Router) {
+  constructor(public service: ImgyApiService, private route: ActivatedRoute, private router: Router) {
     this.id = this.route.snapshot.paramMap.get('id');
     service.getPostById(this.id).subscribe((post: Post) => {
       this.post = post; this.getComments();
@@ -37,6 +39,13 @@ export class MypostComponent implements OnInit {
     this.service.deletePost(this.id).subscribe(
     (res) => { this.router.navigateByUrl('/Profile'); console.log(res); },
     (err) => { this.error = true; console.log(err); });
+  }
+
+  submitComment() {
+    this.service.createComment(this.id, this.newComment).subscribe(
+      (res) => { this.comments.push(res); },
+      (err) => { this.errorComment = true; }
+    );
   }
 
 }
