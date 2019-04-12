@@ -95,7 +95,9 @@
         </div>
         <div *ngFor="let comment of comments; let i = index">
           <div class="card">
-              <h5 class="card-header">Post ID: {{ comment.postId }} </h5>
+              <h5 class="card-header">
+                <a data-dismiss="modal" routerLink="/Post/{{comment.postId}}">Post ID: {{ comment.postId }}</a>
+              </h5>
               <div class="card-body">
                 <h5 class="card-title">Comment</h5>
                 <p class="card-text"> {{ comment.comment }} </p>
