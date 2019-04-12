@@ -96,4 +96,8 @@ export class ImgyApiService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url + 'auth/verify', {token}, {headers});
   }
+
+  findUser(username: string) {
+    return this.http.get(this.url + 'users/' + username);
+  }
 }
